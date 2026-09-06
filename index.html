@@ -1,518 +1,1149 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Adamjee Developers — Construction &amp; Development, Punjab</title>
-<meta name="description" content="Adamjee Developers builds schools, hotels, apartments and private homes across Punjab — from grey structure to turnkey handover.">
-<meta property="og:title" content="Adamjee Developers — Construction &amp; Development">
-<meta property="og:description" content="Schools, hotels, apartments and private homes. Built to drawing, handed over on schedule.">
-<meta property="og:type" content="website">
-<meta property="og:image" content="images/projects/project1.jpg">
-<link rel="icon" type="image/png" href="images/logo/logo.png">
-<link rel="apple-touch-icon" href="images/logo/logo.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Archivo:wght@300;400;500;600&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RANA COTTON GINNERS &amp; OIL MILLS (PVT.) LTD.</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-/* ============================================================
-   TOKENS — Adamjee Developers
-   ============================================================ */
-:root{
-  --graphite:#12161A;
-  --graphite-2:#1A2027;
-  --petrol:#1C3540;
-  --bronze:#C08B4E;
-  --porcelain:#EDEFF1;
-  --mist:#8E98A2;
 
-  --muted:var(--mist);
-  --rule:rgba(237,239,241,.14);
 
-  --display:"Instrument Serif",Georgia,serif;
-  --body:"Archivo",system-ui,-apple-system,sans-serif;
-
-  --rail:92px;
-  --gut:clamp(24px,6vw,96px);
-  --sec:clamp(88px,13vh,150px);
-  --ease:cubic-bezier(.22,.61,.36,1);
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
 }
 
-*,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth}
 body{
-  margin:0;background:var(--graphite);color:var(--porcelain);
-  font-family:var(--body);font-weight:300;
-  font-size:clamp(15px,1.02vw,17px);line-height:1.7;
-  -webkit-font-smoothing:antialiased;overflow-x:hidden;
-}
-img{max-width:100%;display:block}
-a{color:inherit}
-
-body::after{
-  content:"";position:fixed;inset:0;z-index:200;pointer-events:none;opacity:.26;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
-  mix-blend-mode:overlay;
+background:#07111f;
+color:#fff;
+overflow-x:hidden;
 }
 
-/* ============================================================
-   TYPE
-   ============================================================ */
-.display{font-family:var(--display);font-weight:400;line-height:1.04;letter-spacing:-.012em;margin:0}
-.d-xl{font-size:clamp(3rem,8.6vw,7.2rem)}
-.d-lg{font-size:clamp(2.15rem,4.6vw,4rem)}
-.d-md{font-size:clamp(1.55rem,2.5vw,2.2rem)}
-.display em{font-style:italic;color:var(--bronze)}
-
-.label{
-  font-family:var(--body);font-size:.66rem;font-weight:600;
-  letter-spacing:.26em;text-transform:uppercase;color:var(--bronze);margin:0;
-}
-.lede{font-size:clamp(1.02rem,1.35vw,1.24rem);line-height:1.62;color:var(--muted);max-width:48ch}
-
-/* ============================================================
-   PLUMB LINE RAIL — signature element
-   ============================================================ */
-.rail{
-  position:fixed;left:0;top:0;bottom:0;width:var(--rail);z-index:100;
-  display:none;flex-direction:column;align-items:center;justify-content:space-between;
-  padding:30px 0;border-right:1px solid var(--rule);
-  background:rgba(18,22,26,.74);backdrop-filter:blur(8px);
-}
-.rail__mark{display:block;line-height:0}
-.rail__mark img{width:52px;height:auto;max-height:64px;object-fit:contain}
-.rail__line{
-  position:relative;flex:1;width:1px;background:var(--rule);margin:26px 0;
-  display:flex;flex-direction:column;justify-content:space-between;
-}
-/* survey ticks — the line is graduated like a measuring staff */
-.rail__line::before{
-  content:"";position:absolute;left:1px;top:0;bottom:0;width:5px;
-  background:repeating-linear-gradient(180deg,rgba(237,239,241,.22) 0 1px,transparent 1px 24px);
-}
-.rail__fill{
-  position:absolute;left:0;top:0;width:1px;height:0;background:var(--bronze);
-  box-shadow:0 0 10px rgba(192,139,78,.6);
-}
-/* the plumb bob rides the fill */
-.rail__bob{
-  position:absolute;left:-3.5px;top:0;width:8px;height:8px;
-  background:var(--bronze);transform:rotate(45deg);
-  box-shadow:0 0 12px rgba(192,139,78,.75);
-}
-.rail__node{position:relative;width:1px;display:flex;align-items:center}
-.rail__dot{
-  position:absolute;left:-2.5px;width:6px;height:6px;
-  background:var(--graphite);border:1px solid var(--rule);
-  transition:background .35s var(--ease),border-color .35s var(--ease);
-}
-.rail__name{
-  position:absolute;left:18px;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;
-  white-space:nowrap;color:var(--muted);opacity:.5;text-decoration:none;
-  transition:opacity .35s var(--ease),color .35s var(--ease);
-}
-.rail__node.is-on .rail__dot{background:var(--bronze);border-color:var(--bronze)}
-.rail__node.is-on .rail__name{opacity:1;color:var(--bronze)}
-.rail__foot{
-  writing-mode:vertical-rl;font-size:.58rem;letter-spacing:.24em;
-  text-transform:uppercase;color:var(--muted);opacity:.55;
-}
-@media(min-width:1080px){.rail{display:flex}.shell{padding-left:var(--rail)}}
-
-.topbar{
-  position:fixed;top:0;left:0;right:0;z-index:100;display:flex;
-  align-items:center;justify-content:space-between;padding:15px var(--gut);
-  background:rgba(18,22,26,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--rule);
-}
-.topbar__mark{display:flex;align-items:center;gap:11px;text-decoration:none;font-size:.66rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase}
-.topbar__mark img{height:26px;width:auto;max-width:110px;object-fit:contain}
-.topbar__cta{font-size:.66rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--bronze);text-decoration:none}
-.topbar__bar{position:absolute;left:0;bottom:-1px;height:2px;width:0;background:var(--bronze)}
-@media(min-width:1080px){.topbar{display:none}}
-
-/* ============================================================
-   LAYOUT
-   ============================================================ */
-.section{padding:var(--sec) var(--gut);position:relative}
-.wrap{max-width:1180px;margin:0 auto}
-.sec-head{display:grid;gap:22px;margin-bottom:clamp(48px,6vw,84px);grid-template-columns:1fr}
-@media(min-width:820px){
-  .sec-head{grid-template-columns:minmax(0,.32fr) minmax(0,.68fr);gap:48px;align-items:start}
+header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:18px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(5,15,30,.92);
+backdrop-filter:blur(10px);
+z-index:999;
 }
 
-/* ============================================================
-   HERO
-   ============================================================ */
-.hero{min-height:100svh;display:flex;align-items:center;padding:120px var(--gut) 64px;position:relative;overflow:hidden;isolation:isolate}
-.hero__bg{position:absolute;inset:0;z-index:-2;overflow:hidden}
-.hero__bg img{
-  width:100%;height:100%;object-fit:cover;object-position:center;
-  transform:scale(1.08);filter:blur(4px) saturate(.82) contrast(1.05);
+.logo{
+font-size:22px;
+font-weight:700;
+color:#2eb5ff;
+letter-spacing:.5px;
+white-space:nowrap;
 }
-/* scrim keeps the headline legible whatever the photo does */
-.hero__scrim{
-  position:absolute;inset:0;z-index:-1;pointer-events:none;
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:30px;
+font-weight:500;
+transition:.3s;
+}
+
+nav a:hover{
+color:#2eb5ff;
+}
+
+.hero{
+
+height:100vh;
+
+background:
+linear-gradient(rgba(5,12,25,.75),rgba(5,12,25,.82)),
+url("https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1800&q=80");
+
+background-size:cover;
+background-position:center;
+
+display:flex;
+align-items:center;
+
+padding:0 8%;
+}
+
+.hero-content{
+max-width:700px;
+}
+
+.hero h1{
+font-size:65px;
+line-height:1.2;
+margin-bottom:25px;
+font-weight:700;
+}
+
+.hero h1 span{
+color:#33b8ff;
+}
+
+.hero p{
+font-size:20px;
+color:#d5d5d5;
+margin-bottom:35px;
+}
+
+.btn{
+display:inline-block;
+padding:16px 40px;
+border-radius:50px;
+background:#1f9eff;
+color:white;
+text-decoration:none;
+font-weight:600;
+transition:.3s;
+}
+
+.btn:hover{
+background:#0079d8;
+transform:translateY(-4px);
+}
+
+section{
+padding:90px 8%;
+}
+
+.title{
+text-align:center;
+font-size:42px;
+margin-bottom:60px;
+color:#3dbdff;
+}
+
+/* ABOUT */
+
+.about{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:50px;
+align-items:center;
+}
+
+.about img{
+width:100%;
+border-radius:15px;
+}
+
+.about h2{
+font-size:38px;
+margin-bottom:20px;
+}
+
+.about p{
+color:#d6d6d6;
+line-height:1.9;
+}
+
+/* SERVICES */
+
+.cards{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+
+gap:30px;
+
+}
+
+.card{
+
+background:#101d34;
+border-radius:15px;
+overflow:hidden;
+transition:.4s;
+border:1px solid #1b3554;
+
+}
+
+.card:hover{
+
+transform:translateY(-10px);
+box-shadow:0 20px 50px rgba(0,162,255,.25);
+
+}
+
+.card img{
+
+width:100%;
+height:220px;
+object-fit:cover;
+
+}
+
+.card-content{
+
+padding:25px;
+
+}
+
+.card h3{
+
+color:#39bcff;
+margin-bottom:15px;
+
+}
+
+.card p{
+
+color:#d8d8d8;
+
+}
+
+/* PILLARS */
+
+.pillars{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:30px;
+
+}
+
+.pillar{
+
+background:#111f37;
+padding:35px;
+border-radius:15px;
+text-align:center;
+transition:.4s;
+
+}
+
+.pillar:hover{
+
+transform:translateY(-8px);
+background:#163052;
+
+}
+
+.pillar img{
+
+width:90px;
+margin-bottom:20px;
+
+}
+
+.pillar h3{
+
+color:#3dbdff;
+margin-bottom:15px;
+
+}
+
+.pillar p{
+
+color:#d6d6d6;
+
+}
+
+/* PROTOCOL */
+
+.protocol-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:30px;
+margin-top:50px;
+}
+
+.protocol-card{
+background:#111f37;
+padding:35px;
+border-radius:15px;
+border-top:4px solid #2eb5ff;
+transition:.4s;
+}
+
+.protocol-card:hover{
+transform:translateY(-8px);
+box-shadow:0 20px 50px rgba(0,170,255,.25);
+}
+
+.number{
+width:70px;
+height:70px;
+border-radius:50%;
+background:#2eb5ff;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:28px;
+font-weight:700;
+margin-bottom:20px;
+}
+
+.protocol-card h3{
+margin-bottom:15px;
+color:#43c2ff;
+}
+
+.protocol-card p{
+color:#d7d7d7;
+line-height:1.8;
+}
+
+.tech-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+}
+
+.tech-box{
+background:#111f37;
+padding:25px;
+border-radius:12px;
+text-align:center;
+font-weight:600;
+border:1px solid #1d3558;
+transition:.3s;
+}
+
+.tech-box:hover{
+background:#18365e;
+transform:translateY(-6px);
+border-color:#2eb5ff;
+box-shadow:0 10px 25px rgba(0,170,255,.25);
+}
+
+/* STATS / WHY / TESTIMONIALS */
+
+.section-description{
+max-width:800px;
+margin:0 auto 60px;
+text-align:center;
+color:#cfd8e3;
+font-size:18px;
+}
+
+.stats-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:30px;
+}
+
+.stat-box{
+background:#111f37;
+padding:40px;
+border-radius:15px;
+text-align:center;
+border:1px solid #1f3558;
+transition:.4s;
+}
+
+.stat-box:hover{
+transform:translateY(-8px);
+box-shadow:0 15px 40px rgba(0,170,255,.25);
+}
+
+.stat-box h3{
+font-size:52px;
+color:#35bbff;
+margin-bottom:10px;
+}
+
+.stat-box p{
+color:#d8d8d8;
+}
+
+.why-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:30px;
+}
+
+.why-card{
+background:#111f37;
+padding:35px;
+border-radius:15px;
+transition:.4s;
+border-left:4px solid #2eb5ff;
+}
+
+.why-card:hover{
+transform:translateY(-8px);
+}
+
+.why-icon{
+font-size:45px;
+margin-bottom:20px;
+}
+
+.why-card h3{
+color:#3dbdff;
+margin-bottom:15px;
+}
+
+.why-card p{
+color:#d5d5d5;
+line-height:1.8;
+}
+
+.testimonial-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:30px;
+}
+
+.testimonial-card{
+background:#111f37;
+padding:35px;
+border-radius:15px;
+position:relative;
+transition:.4s;
+border:1px solid #1d3558;
+}
+
+.testimonial-card:hover{
+transform:translateY(-8px);
+box-shadow:0 15px 40px rgba(0,170,255,.25);
+}
+
+.testimonial-card::before{
+content:"★★★★★";
+color:#FFD700;
+font-size:20px;
+display:block;
+margin-bottom:20px;
+}
+
+.testimonial-card p{
+font-style:italic;
+line-height:1.8;
+color:#d8d8d8;
+margin-bottom:25px;
+}
+
+.testimonial-card h4{
+color:#35bbff;
+margin-bottom:5px;
+}
+
+.testimonial-card span{
+color:#bbbbbb;
+font-size:14px;
+}
+
+/* CONTACT */
+
+.contact{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:50px;
+align-items:center;
+}
+
+.contact-visual{
+background:#111f37;
+border-radius:15px;
+border:1px solid #1d3558;
+padding:50px;
+text-align:center;
+}
+
+.contact-visual .glow-icon{
+font-size:70px;
+margin-bottom:20px;
+}
+
+.contact-visual h3{
+color:#3dbdff;
+margin-bottom:15px;
+font-size:26px;
+}
+
+.contact-visual p{
+color:#d6d6d6;
+line-height:1.8;
+}
+
+.contact-info{
+background:#111f37;
+border-radius:15px;
+border:1px solid #1d3558;
+padding:45px;
+margin-left:auto;
+width:100%;
+max-width:480px;
+}
+
+.contact-info h3{
+color:#3dbdff;
+font-size:28px;
+margin-bottom:30px;
+}
+
+.contact-info .info-row{
+display:flex;
+flex-direction:column;
+margin-bottom:22px;
+padding-bottom:22px;
+border-bottom:1px solid #1d3558;
+}
+
+.contact-info .info-row:last-child{
+border-bottom:none;
+margin-bottom:0;
+padding-bottom:0;
+}
+
+.contact-info .info-label{
+color:#2eb5ff;
+font-weight:600;
+font-size:13px;
+text-transform:uppercase;
+letter-spacing:.5px;
+margin-bottom:6px;
+}
+
+.contact-info .info-value{
+color:#e6e6e6;
+font-size:16px;
+}
+
+.contact-info .info-value a{
+color:#e6e6e6;
+text-decoration:none;
+}
+
+.contact-info .info-value a:hover{
+color:#2eb5ff;
+}
+
+footer{
+text-align:center;
+padding:30px;
+color:#9aa5b3;
+border-top:1px solid #1d3558;
+}
+
+@media(max-width:900px){
+
+.hero h1{
+font-size:45px;
+}
+
+.about{
+
+grid-template-columns:1fr;
+
+}
+
+.contact{
+grid-template-columns:1fr;
+}
+
+.contact-info{
+margin-left:0;
+max-width:100%;
+}
+
+nav{
+
+display:none;
+
+}
+
+}
+
+
+/* ===== RANA COTTON MODERN ANIMATIONS ===== */
+:root{
+  --glow:#2eb5ff;
+  --glow2:#76dcff;
+}
+html{scroll-padding-top:90px}
+
+body{
   background:
-    linear-gradient(90deg,rgba(18,22,26,.94) 0%,rgba(18,22,26,.82) 42%,rgba(18,22,26,.5) 78%,rgba(18,22,26,.62) 100%),
-    linear-gradient(0deg,rgba(18,22,26,.96) 0%,rgba(18,22,26,.25) 42%,rgba(28,53,64,.45) 100%);
+    radial-gradient(circle at 10% 10%,rgba(46,181,255,.08),transparent 30%),
+    radial-gradient(circle at 90% 35%,rgba(66,126,255,.06),transparent 28%),
+    #07111f;
 }
-.hero__inner{position:relative;max-width:1180px;margin:0 auto;width:100%}
-.hero__eyebrow{margin-bottom:32px}
-.hero__title{margin:0 0 32px}
-.hero__title .line{display:block;overflow:hidden}
-.hero__title .line > span{display:block}
-.hero__meta{display:flex;flex-wrap:wrap;gap:14px 40px;align-items:baseline;margin-top:44px;padding-top:26px;border-top:1px solid var(--rule)}
-.hero__meta span{font-size:.68rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
-.hero__scroll{margin-top:52px;display:inline-flex;align-items:center;gap:12px;font-size:.65rem;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);text-decoration:none}
-.hero__scroll i{display:block;width:44px;height:1px;background:var(--bronze);transform-origin:left;transition:transform .4s var(--ease)}
-.hero__scroll:hover i{transform:scaleX(1.5)}
 
-/* ============================================================
-   PROJECTS
-   ============================================================ */
-.proj{display:grid;gap:clamp(28px,3.2vw,48px)}
-@media(min-width:760px){.proj{grid-template-columns:repeat(2,1fr)}}
-@media(min-width:1080px){.proj{grid-template-columns:repeat(3,1fr)}}
-.proj__item{position:relative;text-decoration:none;display:block}
-.proj__item--lead{grid-column:1/-1}
-.proj__frame{position:relative;overflow:hidden;background:var(--graphite-2);aspect-ratio:4/3;border:1px solid var(--rule)}
-.proj__item--lead .proj__frame{aspect-ratio:16/7}
-.proj__frame img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--ease)}
-.proj__item:hover .proj__frame img{transform:scale(1.045)}
-/* subtle tint so photos sit in the palette, lifted on hover */
-.proj__frame::after{
-  content:"";position:absolute;inset:0;pointer-events:none;
-  background:linear-gradient(180deg,rgba(28,53,64,.28) 0%,rgba(18,22,26,.42) 100%);
-  opacity:1;transition:opacity .7s var(--ease);
+/* Moving tech-grid background */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:-1;
+  opacity:.10;
+  background-image:
+    linear-gradient(rgba(46,181,255,.18) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(46,181,255,.18) 1px,transparent 1px);
+  background-size:55px 55px;
+  animation:gridMove 18s linear infinite;
 }
-.proj__item:hover .proj__frame::after{opacity:.35}
-.proj__cap{display:flex;justify-content:space-between;align-items:baseline;gap:18px;padding-top:16px;border-top:1px solid var(--rule);margin-top:16px}
-.proj__cap h3{font-family:var(--display);font-weight:400;font-size:1.3rem;margin:0}
-.proj__cap span{font-size:.63rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
-
-/* ============================================================
-   SERVICES
-   ============================================================ */
-.svc{border-top:1px solid var(--rule)}
-.svc__row{display:grid;grid-template-columns:1fr;gap:10px;padding:30px 0;border-bottom:1px solid var(--rule);position:relative;transition:padding-left .45s var(--ease)}
-.svc__row::before{content:"";position:absolute;left:0;top:-1px;height:1px;width:0;background:var(--bronze);transition:width .55s var(--ease)}
-.svc__row:hover::before{width:100%}
-@media(min-width:820px){
-  .svc__row{grid-template-columns:minmax(0,.38fr) minmax(0,.62fr);gap:48px;align-items:baseline;padding:34px 0}
-  .svc__row:hover{padding-left:18px}
+@keyframes gridMove{
+  from{transform:translateY(0)}
+  to{transform:translateY(55px)}
 }
-.svc__name{margin:0}
-.svc__body{margin:0;color:var(--muted);max-width:54ch}
 
-/* ============================================================
-   PROCESS
-   ============================================================ */
-.steps{display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule)}
-@media(min-width:760px){.steps{grid-template-columns:repeat(2,1fr)}}
-@media(min-width:1080px){.steps{grid-template-columns:repeat(4,1fr)}}
-.step{background:var(--graphite);padding:34px 26px 40px}
-.step__n{font-family:var(--display);font-size:1rem;color:var(--bronze);display:block;margin-bottom:24px}
-.step h3{font-family:var(--display);font-weight:400;font-size:1.34rem;margin:0 0 12px}
-.step p{margin:0;color:var(--muted);font-size:.93rem}
+header{
+  transition:all .35s ease;
+  border-bottom:1px solid rgba(255,255,255,.04);
+}
+header.scrolled{
+  background:rgba(3,10,22,.96);
+  box-shadow:0 10px 35px rgba(0,0,0,.30);
+  padding-top:12px;
+  padding-bottom:12px;
+}
 
-/* ============================================================
-   FIGURES BAND
-   ============================================================ */
-.band{background:var(--petrol);--rule:rgba(237,239,241,.2)}
-.figs{display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule)}
-@media(min-width:640px){.figs{grid-template-columns:repeat(2,1fr)}}
-@media(min-width:1080px){.figs{grid-template-columns:repeat(4,1fr)}}
-.fig{background:var(--petrol);padding:32px 26px}
-.fig b{display:block;font-family:var(--display);font-weight:400;font-size:clamp(2.4rem,4vw,3.4rem);line-height:1;margin-bottom:12px}
-.fig span{font-size:.64rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:rgba(237,239,241,.7)}
+.logo{text-shadow:0 0 18px rgba(46,181,255,.28)}
+.logo::after{
+  content:"";
+  display:inline-block;
+  width:7px;height:7px;
+  margin-left:8px;
+  border-radius:50%;
+  background:var(--glow);
+  box-shadow:0 0 14px var(--glow);
+  animation:pulseDot 1.8s infinite;
+}
+@keyframes pulseDot{
+  0%,100%{transform:scale(.8);opacity:.6}
+  50%{transform:scale(1.25);opacity:1}
+}
 
-/* ============================================================
-   CONTACT — inverted
-   ============================================================ */
-.invert{background:var(--porcelain);color:var(--graphite);--muted:#4F5860;--rule:rgba(18,22,26,.16)}
-.invert .label{color:#8A6030}
-.invert .display em{color:#8A6030}
-.contact__grid{display:grid;gap:44px}
-@media(min-width:860px){.contact__grid{grid-template-columns:1.12fr .88fr;gap:80px}}
-.contact__title{margin:0 0 24px}
-.btn{display:inline-flex;align-items:center;gap:14px;padding:17px 32px;background:var(--graphite);color:var(--porcelain);text-decoration:none;font-size:.7rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;transition:background .35s var(--ease),transform .35s var(--ease)}
-.btn:hover{background:var(--petrol);transform:translateY(-2px)}
-.btn i{display:block;width:26px;height:1px;background:var(--bronze)}
-.btn--ghost{background:transparent;color:var(--graphite);border:1px solid rgba(18,22,26,.28)}
-.btn--ghost:hover{background:var(--graphite);color:var(--porcelain)}
-.btns{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
-.det{border-top:1px solid var(--rule);padding:20px 0;display:grid;grid-template-columns:auto 1fr;gap:8px 26px;align-items:baseline;margin:0}
-.det dt{font-size:.62rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
-.det dd{margin:0;font-size:1rem}
-.det dd a{text-decoration:none;border-bottom:1px solid rgba(18,22,26,.3);padding-bottom:2px}
-.det dd a:hover{border-color:#8A6030;color:#8A6030}
+nav a{position:relative}
+nav a::after{
+  content:"";
+  position:absolute;
+  left:0;bottom:-8px;
+  width:0;height:2px;
+  background:linear-gradient(90deg,var(--glow),var(--glow2));
+  box-shadow:0 0 10px rgba(46,181,255,.7);
+  transition:width .3s ease;
+}
+nav a:hover::after{width:100%}
 
-.foot{padding:36px var(--gut);border-top:1px solid var(--rule);display:flex;flex-wrap:wrap;gap:16px 34px;justify-content:space-between;align-items:center;font-size:.66rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
-.foot__mark{display:flex;align-items:center;gap:12px}
-.foot__mark img{height:24px;width:auto;max-width:96px;object-fit:contain}
-.foot nav{display:flex;gap:24px;flex-wrap:wrap}
-.foot a{text-decoration:none}
-.foot a:hover{color:#8A6030}
+.hero{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  width:520px;height:520px;
+  right:-160px;top:18%;
+  border:1px solid rgba(46,181,255,.16);
+  border-radius:50%;
+  box-shadow:0 0 80px rgba(46,181,255,.08);
+  animation:heroOrbit 12s ease-in-out infinite;
+  z-index:-1;
+}
+.hero::after{
+  content:"";
+  position:absolute;
+  width:240px;height:240px;
+  right:4%;top:32%;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(46,181,255,.22),transparent 68%);
+  filter:blur(8px);
+  animation:heroGlow 4s ease-in-out infinite;
+  z-index:-1;
+}
+@keyframes heroOrbit{
+  0%,100%{transform:translateY(0) rotate(0)}
+  50%{transform:translateY(-18px) rotate(8deg)}
+}
+@keyframes heroGlow{
+  0%,100%{transform:scale(.85);opacity:.55}
+  50%{transform:scale(1.15);opacity:1}
+}
 
-/* ============================================================
-   MOTION
-   ============================================================ */
-.reveal{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
-.reveal.in{opacity:1;transform:none}
-.reveal[data-d="1"]{transition-delay:.1s}
-.reveal[data-d="2"]{transition-delay:.2s}
-.reveal[data-d="3"]{transition-delay:.3s}
-@keyframes riseIn{from{transform:translateY(105%)}to{transform:translateY(0)}}
-.hero__title .line > span{animation:riseIn 1.05s var(--ease) both}
-.hero__title .line:nth-child(2) > span{animation-delay:.13s}
-.hero__title .line:nth-child(3) > span{animation-delay:.26s}
-:focus-visible{outline:2px solid var(--bronze);outline-offset:4px}
+.hero-content{animation:heroEnter 1s cubic-bezier(.2,.8,.2,1) both}
+@keyframes heroEnter{
+  from{opacity:0;transform:translateY(35px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.hero h1{text-shadow:0 8px 40px rgba(0,0,0,.35)}
+.hero h1 span{
+  background:linear-gradient(90deg,#2eb5ff,#9be7ff,#2eb5ff);
+  background-size:200% auto;
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:textShine 4s linear infinite;
+}
+@keyframes textShine{to{background-position:200% center}}
+
+.btn{
+  position:relative;
+  overflow:hidden;
+  box-shadow:0 8px 30px rgba(31,158,255,.22);
+}
+.btn::before{
+  content:"";
+  position:absolute;
+  top:0;left:-120%;
+  width:70%;height:100%;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.45),transparent);
+  transform:skewX(-20deg);
+  transition:left .65s ease;
+}
+.btn:hover::before{left:140%}
+.btn:hover{box-shadow:0 14px 35px rgba(31,158,255,.35)}
+
+.title{text-shadow:0 0 25px rgba(46,181,255,.12)}
+.title::after{
+  content:"";
+  display:block;
+  width:65px;height:3px;
+  margin:14px auto 0;
+  border-radius:10px;
+  background:linear-gradient(90deg,transparent,var(--glow),transparent);
+  box-shadow:0 0 14px rgba(46,181,255,.6);
+}
+
+.about img{
+  border:1px solid rgba(76,190,255,.20);
+  box-shadow:0 25px 70px rgba(0,0,0,.30);
+  transition:transform .6s ease,box-shadow .6s ease;
+}
+.about img:hover{
+  transform:scale(1.025) rotate(.4deg);
+  box-shadow:0 30px 80px rgba(0,145,255,.18);
+}
+
+.card,.pillar,.protocol-card,.tech-box,.stat-box,.why-card,.testimonial-card,
+.contact-visual,.contact-info{
+  background:linear-gradient(145deg,rgba(20,39,68,.84),rgba(11,25,45,.84));
+  border-color:rgba(76,190,255,.20);
+  box-shadow:0 12px 35px rgba(0,0,0,.14);
+}
+
+.card,.pillar,.protocol-card,.tech-box,.stat-box,.why-card,.testimonial-card{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+}
+.card::before,.pillar::before,.protocol-card::before,.tech-box::before,
+.stat-box::before,.why-card::before,.testimonial-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:inherit;
+  background:linear-gradient(120deg,transparent 25%,rgba(46,181,255,.08),transparent 70%);
+  transform:translateX(-100%);
+  transition:transform .8s ease;
+  pointer-events:none;
+  z-index:-1;
+}
+.card:hover::before,.pillar:hover::before,.protocol-card:hover::before,.tech-box:hover::before,
+.stat-box:hover::before,.why-card:hover::before,.testimonial-card:hover::before{
+  transform:translateX(100%);
+}
+
+.card img{
+  transition:transform .7s cubic-bezier(.2,.8,.2,1),filter .7s ease;
+}
+.card:hover img{
+  transform:scale(1.06);
+  filter:saturate(1.12) brightness(1.08);
+}
+.pillar img{
+  filter:drop-shadow(0 0 10px rgba(46,181,255,.12));
+  transition:transform .5s ease,filter .5s ease;
+}
+.pillar:hover img{
+  transform:translateY(-6px) scale(1.08);
+  filter:drop-shadow(0 0 18px rgba(46,181,255,.38));
+}
+
+.number{
+  box-shadow:0 0 0 0 rgba(46,181,255,.35);
+  animation:numberPulse 3s infinite;
+}
+@keyframes numberPulse{
+  0%,100%{box-shadow:0 0 0 0 rgba(46,181,255,.28)}
+  50%{box-shadow:0 0 0 10px rgba(46,181,255,0)}
+}
+
+.stat-box h3{text-shadow:0 0 22px rgba(53,187,255,.25)}
+.why-icon{
+  display:inline-block;
+  filter:drop-shadow(0 0 10px rgba(46,181,255,.15));
+  transition:transform .4s ease;
+}
+.why-card:hover .why-icon{transform:scale(1.12) rotate(-5deg)}
+
+.contact-visual .glow-icon{
+  animation:floatIcon 3.5s ease-in-out infinite;
+  filter:drop-shadow(0 0 18px rgba(46,181,255,.25));
+}
+@keyframes floatIcon{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-10px)}
+}
+
+/* Scroll reveal */
+.reveal{
+  opacity:0;
+  transform:translateY(35px);
+  transition:opacity .75s ease,transform .75s cubic-bezier(.2,.8,.2,1);
+}
+.reveal.visible{opacity:1;transform:none}
+.reveal-delay-1{transition-delay:.08s}
+.reveal-delay-2{transition-delay:.16s}
+.reveal-delay-3{transition-delay:.24s}
+.reveal-delay-4{transition-delay:.32s}
+
+/* Back to top */
+#backToTop{
+  position:fixed;
+  right:24px;bottom:24px;
+  width:48px;height:48px;
+  border:1px solid rgba(46,181,255,.35);
+  border-radius:50%;
+  background:rgba(8,20,37,.90);
+  color:#fff;
+  cursor:pointer;
+  font-size:20px;
+  opacity:0;visibility:hidden;
+  transform:translateY(12px);
+  transition:.3s ease;
+  z-index:1000;
+}
+#backToTop.show{opacity:1;visibility:visible;transform:none}
+#backToTop:hover{background:#168fdc;transform:translateY(-4px)}
+
+/* Mobile navigation */
+.menu-toggle{
+  display:none;
+  width:44px;height:44px;
+  border:1px solid rgba(46,181,255,.25);
+  border-radius:12px;
+  background:rgba(15,34,58,.75);
+  color:#fff;
+  font-size:22px;
+  cursor:pointer;
+}
+@media(max-width:900px){
+  header{padding:14px 6%}
+  .menu-toggle{display:block}
+  nav{
+    display:flex;
+    position:absolute;
+    top:74px;left:5%;right:5%;
+    padding:12px;
+    flex-direction:column;
+    gap:4px;
+    background:rgba(4,13,27,.97);
+    border:1px solid rgba(46,181,255,.18);
+    border-radius:16px;
+    box-shadow:0 20px 45px rgba(0,0,0,.35);
+    opacity:0;visibility:hidden;
+    transform:translateY(-10px);
+    transition:.3s ease;
+  }
+  nav.open{opacity:1;visibility:visible;transform:none}
+  nav a{margin:0;padding:13px 15px;border-radius:10px}
+  nav a:hover{background:rgba(46,181,255,.08)}
+  nav a::after{display:none}
+}
 @media(prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
-  .reveal{opacity:1;transform:none}
+  *,*::before,*::after{
+    animation-duration:.01ms !important;
+    animation-iteration-count:1 !important;
+    scroll-behavior:auto !important;
+    transition-duration:.01ms !important;
+  }
 }
+
+
 </style>
 </head>
 <body>
-
-<!-- ============ PLUMB-LINE RAIL (desktop) ============ -->
-<aside class="rail" aria-label="Section navigation">
-  <a class="rail__mark" href="#top" aria-label="Adamjee Developers — back to top">
-    <img src="images/logo/logo.png" alt="Adamjee Developers">
-  </a>
-  <div class="rail__line">
-    <span class="rail__fill" id="fill"><span class="rail__bob"></span></span>
-    <span class="rail__node" data-for="projects"><span class="rail__dot"></span><a class="rail__name" href="#projects">Projects</a></span>
-    <span class="rail__node" data-for="services"><span class="rail__dot"></span><a class="rail__name" href="#services">Services</a></span>
-    <span class="rail__node" data-for="process"><span class="rail__dot"></span><a class="rail__name" href="#process">Process</a></span>
-    <span class="rail__node" data-for="contact"><span class="rail__dot"></span><a class="rail__name" href="#contact">Contact</a></span>
-  </div>
-  <span class="rail__foot">Punjab, PK</span>
-</aside>
-
-<header class="topbar">
-  <a class="topbar__mark" href="#top"><img src="images/logo/logo.png" alt="Adamjee Developers"></a>
-  <a class="topbar__cta" href="#contact">Get a quote</a>
-  <span class="topbar__bar" id="bar"></span>
+<header>
+<div class="logo">RANA COTTON GINNERS &amp; OIL MILLS</div>
+<nav>
+<a href="#about">About</a>
+<a href="#services">Operations</a>
+<a href="#pillars">Capabilities</a>
+<a href="#protocol">Process</a>
+<a href="#contact">Contact</a>
+</nav>
+<button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">☰</button>
 </header>
 
-<div class="shell">
-
-<!-- ============ HERO ============ -->
-<section class="hero" id="top">
-  <div class="hero__bg" aria-hidden="true">
-    <img src="images/here/hero.jpg" alt="" fetchpriority="high">
-  </div>
-  <div class="hero__scrim" aria-hidden="true"></div>
-  <div class="hero__inner">
-    <p class="label hero__eyebrow">Construction &amp; Development — Punjab</p>
-    <h1 class="display d-xl hero__title">
-      <span class="line"><span>We build it</span></span>
-      <span class="line"><span>the way it was</span></span>
-      <span class="line"><span><em>drawn.</em></span></span>
-    </h1>
-    <p class="lede">Adamjee Developers takes on schools, hotels, apartment blocks and private homes — grey structure through to finishing, under one contract and one site team.</p>
-    <div class="hero__meta">
-      <span>Schools</span><span>Hotels</span><span>Apartments</span><span>Houses</span>
-    </div>
-    <a class="hero__scroll" href="#projects"><i></i> Completed projects</a>
-  </div>
-</section>
-
-<!-- ============ PROJECTS ============ -->
-<section class="section" id="projects">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <p class="label">Completed projects</p>
-      <h2 class="display d-lg">Four buildings, four different problems to solve.</h2>
-    </div>
-
-    <div class="proj">
-
-      <!-- 1 — APARTMENTS (lead) -->
-      <a class="proj__item proj__item--lead reveal" href="#contact">
-        <div class="proj__frame">
-          <img src="images/projects/project1.jpg" alt="Apartment block completed by Adamjee Developers">
-        </div>
-        <div class="proj__cap"><h3>Apartment block</h3><span>Residential — 2024</span></div>
-      </a>
-
-      <!-- 2 — SCHOOL -->
-      <a class="proj__item reveal" href="#contact">
-        <div class="proj__frame">
-          <img src="images/projects/project2.jpg" alt="School campus completed by Adamjee Developers" loading="lazy">
-        </div>
-        <div class="proj__cap"><h3>School campus</h3><span>Institutional — 2023</span></div>
-      </a>
-
-      <!-- 3 — HOTEL -->
-      <a class="proj__item reveal" data-d="1" href="#contact">
-        <div class="proj__frame">
-          <img src="images/projects/project3.jpg" alt="Hotel completed by Adamjee Developers" loading="lazy">
-        </div>
-        <div class="proj__cap"><h3>Hotel</h3><span>Hospitality — 2023</span></div>
-      </a>
-
-      <!-- 4 — HOUSE -->
-      <a class="proj__item reveal" data-d="2" href="#contact">
-        <div class="proj__frame">
-          <img src="images/projects/project4.jpg" alt="Private house completed by Adamjee Developers" loading="lazy">
-        </div>
-        <div class="proj__cap"><h3>Private house</h3><span>Residential — 2022</span></div>
-      </a>
-
-    </div>
-  </div>
-</section>
-
-<!-- ============ FIGURES ============ -->
-<section class="section band">
-  <div class="wrap">
-    <div class="figs reveal">
-      <div class="fig"><b>100+</b><span>Projects completed</span></div>
-      <div class="fig"><b>10+</b><span>Years in business</span></div>
-      <div class="fig"><b>1000k</b><span>Sq ft delivered</span></div>
-      <div class="fig"><b>100+</b><span>People on site</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ SERVICES ============ -->
-<section class="section" id="services">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <p class="label">What we take on</p>
-      <h2 class="display d-lg">From an empty plot to the keys in your hand.</h2>
-    </div>
-    <div class="svc reveal">
-      <div class="svc__row">
-        <h3 class="display d-md svc__name">Turnkey construction</h3>
-        <p class="svc__body">One contract covering drawings, grey structure, finishing and fittings. You deal with us, not with fifteen separate contractors.</p>
-      </div>
-      <div class="svc__row">
-        <h3 class="display d-md svc__name">Grey structure</h3>
-        <p class="svc__body">Foundation, columns, slabs, blockwork and roofing — built to the structural drawings, with steel and concrete you can inspect at any stage.</p>
-      </div>
-      <div class="svc__row">
-        <h3 class="display d-md svc__name">Finishing &amp; interiors</h3>
-        <p class="svc__body">Plaster, flooring, joinery, electrical and plumbing, paint and fixtures. Taking over a half-finished structure is fine too.</p>
-      </div>
-      <div class="svc__row">
-        <h3 class="display d-md svc__name">Commercial &amp; institutional</h3>
-        <p class="svc__body">Schools, hotels and shop-cum-office buildings, where phasing, access and handover dates matter as much as the build itself.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ PROCESS ============ -->
-<section class="section" id="process">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <p class="label">How a project runs</p>
-      <h2 class="display d-lg">You always know what stage you're paying for.</h2>
-    </div>
-    <div class="steps reveal">
-      <div class="step">
-        <span class="step__n">01</span>
-        <h3>Site visit</h3>
-        <p>We walk the plot, check access, soil and services, and talk budget honestly before anything is drawn.</p>
-      </div>
-      <div class="step">
-        <span class="step__n">02</span>
-        <h3>Drawings &amp; BOQ</h3>
-        <p>Architectural and structural drawings with a line-by-line bill of quantities. You see the cost of every item.</p>
-      </div>
-      <div class="step">
-        <span class="step__n">03</span>
-        <h3>Construction</h3>
-        <p>Our own site team and supervisor, weekly photo updates, and payments released against completed stages.</p>
-      </div>
-      <div class="step">
-        <span class="step__n">04</span>
-        <h3>Handover</h3>
-        <p>Snag list closed, completion documents in order, and the building handed over clean.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ CONTACT ============ -->
-<section class="section invert" id="contact">
-  <div class="wrap contact__grid">
-    <div class="reveal">
-      <p class="label">Enquiries</p>
-      <h2 class="display d-lg contact__title">Send us the plot, we'll send you a <em>figure</em>.</h2>
-      <p class="lede">Tell us the location, the plot size and what you want built. We reply within two working days with a site-visit date.</p>
-      <div class="btns">
-        <a class="btn" href="mailto:info@adamjeedevelopers.com?subject=Project%20enquiry"><i></i> Email us</a>
-        <a class="btn btn--ghost" href="https://wa.me/920000000000">WhatsApp</a>
-      </div>
-    </div>
-    <div class="reveal" data-d="1">
-      <dl class="det"><dt>Email</dt><dd><a href="mailto:info@adamjeedevelopers.com">admin@adamjeedevelopers.com</a></dd></dl>
-      <dl class="det"><dt>Phone</dt><dd><a href="tel:">+92 332 4709892</a></dd></dl>
-      <dl class="det"><dt>Office</dt><dd>Office #4 Main Street, Model town, <br>Hasilpur, Punjab</dd></dl>
-      <dl class="det"><dt>Hours</dt><dd>Mon–Sat, 9am – 6pm</dd></dl>
-    </div>
-  </div>
-</section>
-
-<footer class="foot invert">
-  <span class="foot__mark"><img src="images/logo/logo.png" alt="" loading="lazy">© <span id="yr">2026</span> Adamjee Developers</span>
-  <nav>
-    <a href="#projects">Projects</a>
-    <a href="#services">Services</a>
-    <a href="#process">Process</a>
-    <a href="#contact">Contact</a>
-  </nav>
-  <span>Arifwala · Punjab</span>
-</footer>
-
+<section class="hero">
+<div class="hero-content">
+<h1>
+From Cotton
+<span>To Quality</span>
+for Every Season
+</h1>
+<p>
+RANA COTTON GINNERS &amp; OIL MILLS (PVT.) LTD. is focused on cotton ginning,
+cotton processing and oil mill operations, with an emphasis on quality,
+careful handling and dependable service for the cotton industry.
+</p>
+<a href="#services" class="btn">Explore Our Operations</a>
 </div>
+</section>
 
+<section id="about">
+<h2 class="title">About RANA COTTON</h2>
+<div class="about reveal">
+<div>
+<h2>Built Around Cotton &amp; Quality</h2>
+<p>
+RANA COTTON GINNERS &amp; OIL MILLS (PVT.) LTD. operates in the cotton
+and oil-mill sector, supporting the journey of cotton from raw agricultural
+material to carefully processed products.<br><br>
+Our approach is centered on responsible handling, consistent processing,
+quality awareness and dependable relationships with growers, buyers and
+business partners.
+</p>
+</div>
+<div>
+<img src="https://images.unsplash.com/photo-1592924357228-91a4daadcfea?auto=format&fit=crop&w=1200&q=80" alt="Cotton plant and cotton bolls">
+</div>
+</div>
+</section>
+
+<section id="services">
+<h2 class="title">Our Operations</h2>
+<div class="cards reveal">
+<div class="card">
+<img src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?auto=format&fit=crop&w=1200&q=80" alt="Cotton field">
+<div class="card-content">
+<h3>🌿 Cotton Procurement</h3>
+<p>Careful sourcing and handling of raw cotton with attention to material quality and reliable supply relationships.</p>
+</div></div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80" alt="Industrial processing facility">
+<div class="card-content">
+<h3>⚙ Cotton Ginning</h3>
+<p>Ginning operations designed to separate cotton lint from seed while maintaining careful processing and material handling.</p>
+</div></div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?auto=format&fit=crop&w=1200&q=80" alt="Industrial machinery">
+<div class="card-content">
+<h3>🛢 Oil Mill Operations</h3>
+<p>Oil-mill operations connected with cottonseed processing, supporting efficient utilization of cottonseed as part of the value chain.</p>
+</div></div>
+</div>
+</section>
+
+<section id="pillars">
+<h2 class="title">Our Core Capabilities</h2>
+<div class="pillars reveal">
+<div class="pillar">
+<div style="font-size:70px;margin-bottom:20px;">🌱</div>
+<h3>Cotton Handling</h3>
+<p>Organized handling of raw cotton with care from receiving through processing.</p>
+</div>
+<div class="pillar">
+<div style="font-size:70px;margin-bottom:20px;">⚙️</div>
+<h3>Ginning Operations</h3>
+<p>Focused cotton ginning processes for efficient separation and preparation of lint and seed.</p>
+</div>
+<div class="pillar">
+<div style="font-size:70px;margin-bottom:20px;">🧵</div>
+<h3>Lint Quality</h3>
+<p>Attention to clean handling and consistent processing to support cotton quality requirements.</p>
+</div>
+<div class="pillar">
+<div style="font-size:70px;margin-bottom:20px;">🛢️</div>
+<h3>Oil Mill Processing</h3>
+<p>Processing of cottonseed as an important part of an integrated cotton value chain.</p>
+</div>
+</div>
+</section>
+
+<section id="protocol">
+<h2 class="title">Our Processing Approach</h2>
+<p style="text-align:center;max-width:900px;margin:0 auto 60px;color:#cfd8e3;">
+A practical, quality-focused approach to handling cotton and supporting dependable industrial operations.
+</p>
+<div class="protocol-grid reveal">
+<div class="protocol-card"><div class="number">01</div><h3>Receiving &amp; Inspection</h3><p>Raw cotton is received and handled with attention to condition, cleanliness and processing requirements.</p></div>
+<div class="protocol-card"><div class="number">02</div><h3>Ginning &amp; Separation</h3><p>Cotton is processed through ginning operations to separate lint from cottonseed efficiently.</p></div>
+<div class="protocol-card"><div class="number">03</div><h3>Quality-Focused Handling</h3><p>Processed materials are handled carefully to support consistency, cleanliness and orderly storage.</p></div>
+<div class="protocol-card"><div class="number">04</div><h3>Dispatch &amp; Supply</h3><p>Finished cotton-related materials are prepared for dependable delivery and business-to-business supply.</p></div>
+</div>
+</section>
+
+<section id="industries">
+<h2 class="title">Connected Cotton Value Chain</h2>
+<div class="cards">
+<div class="card"><img src="https://images.unsplash.com/photo-1528498033373-3c6c08e93d79?auto=format&fit=crop&w=1200&q=80" alt="Cotton crop">
+<div class="card-content"><h3>🌾 Cotton Agriculture</h3><p>Connected with the agricultural side of the cotton supply chain through sourcing and raw cotton handling.</p></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=1200&q=80" alt="Textile material">
+<div class="card-content"><h3>🧵 Textile Supply</h3><p>Supporting the wider cotton ecosystem by preparing cotton lint for downstream textile and manufacturing requirements.</p></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1565610222536-ef125c59da2e?auto=format&fit=crop&w=1200&q=80" alt="Industrial materials">
+<div class="card-content"><h3>🏭 Industrial Processing</h3><p>Integrated ginning and oil-mill activities contribute to efficient utilization of cotton and cottonseed.</p></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1581578021514-1f6c1a4d8b4a?auto=format&fit=crop&w=1200&q=80" alt="Warehouse">
+<div class="card-content"><h3>📦 Storage &amp; Handling</h3><p>Organized material handling and storage practices designed to protect products throughout the operating cycle.</p></div></div>
+</div>
+</section>
+
+<section id="technology">
+<h2 class="title">Our Operating Focus</h2>
+<p style="text-align:center;max-width:900px;margin:0 auto 60px;color:#d4dbe5;">
+Our operations are guided by practical industrial priorities that support quality, efficiency and responsible cotton processing.
+</p>
+<div class="tech-grid reveal">
+<div class="tech-box">🌱 Raw Cotton Handling</div>
+<div class="tech-box">⚙ Ginning Operations</div>
+<div class="tech-box">🧵 Lint Preparation</div>
+<div class="tech-box">🛢 Cottonseed Processing</div>
+<div class="tech-box">🔍 Quality Awareness</div>
+<div class="tech-box">📦 Material Handling</div>
+<div class="tech-box">🏭 Industrial Operations</div>
+<div class="tech-box">🤝 Supplier Relationships</div>
+</div>
+</section>
+
+<section id="statistics">
+<h2 class="title">What We Stand For</h2>
+<p class="section-description">A straightforward commitment to responsible processing, quality-conscious operations and dependable business relationships.</p>
+<div class="stats-grid reveal">
+<div class="stat-box"><h3 class="counter" data-target="1">1</h3><p>Integrated Cotton &amp; Oil Mill Focus</p></div>
+<div class="stat-box"><h3 class="counter" data-target="4">4</h3><p>Core Operating Priorities</p></div>
+<div class="stat-box"><h3 class="counter" data-target="100">100</h3><p>Quality-Focused Approach</p></div>
+<div class="stat-box"><h3>24/7</h3><p>Commitment to Reliable Operations</p></div>
+</div>
+</section>
+
+<section id="why-ahw">
+<h2 class="title">Why Work With RANA COTTON</h2>
+<div class="why-grid reveal">
+<div class="why-card"><div class="why-icon">🌱</div><h3>Cotton Industry Focus</h3><p>Our business is centered on cotton ginning and related oil-mill operations.</p></div>
+<div class="why-card"><div class="why-icon">⚙️</div><h3>Processing Expertise</h3><p>Focused operations for handling, ginning and processing cotton and cottonseed.</p></div>
+<div class="why-card"><div class="why-icon">🔍</div><h3>Quality Awareness</h3><p>We emphasize careful handling and quality-conscious processing throughout our operations.</p></div>
+<div class="why-card"><div class="why-icon">🤝</div><h3>Reliable Relationships</h3><p>We value clear communication and dependable relationships with business partners.</p></div>
+<div class="why-card"><div class="why-icon">🏭</div><h3>Industrial Approach</h3><p>Our operations are organized around practical, efficient and responsible industrial processes.</p></div>
+<div class="why-card"><div class="why-icon">📍</div><h3>Local Presence</h3><p>Based at 138/ML, MM Road, Chowk Azam, Layyah, serving the cotton business community.</p></div>
+</div>
+</section>
+
+<section id="testimonials">
+<h2 class="title">Our Business Commitment</h2>
+<p class="section-description">We aim to build long-term business relationships through consistency, communication and responsible operations.</p>
+<div class="testimonial-grid reveal">
+<div class="testimonial-card"><p>"We focus on careful cotton handling, consistent processing and dependable service for our business partners."</p><h4>RANA COTTON</h4><span>Ginning &amp; Oil Mill Operations</span></div>
+<div class="testimonial-card"><p>"Every stage of our work is approached with attention to quality, efficiency and responsible material handling."</p><h4>Quality First</h4><span>Our Operating Approach</span></div>
+<div class="testimonial-card"><p>"We value the relationships that connect growers, processors, buyers and the wider cotton value chain."</p><h4>Long-Term Partnerships</h4><span>Our Business Philosophy</span></div>
+</div>
+</section>
+
+<section id="contact">
+<h2 class="title">Get In Touch</h2>
+<div class="contact reveal">
+<div class="contact-visual">
+<div class="glow-icon">🌿</div>
+<h3>Let's Talk Cotton</h3>
+<p>Contact RANA COTTON GINNERS &amp; OIL MILLS (PVT.) LTD. for business inquiries related to cotton ginning, cotton processing and oil-mill operations.</p>
+</div>
+<div class="contact-info">
+<h3>Contact Details</h3>
+<div class="info-row"><span class="info-label">Company</span><span class="info-value">RANA COTTON GINNERS &amp; OIL MILLS (PVT.) LTD.</span></div>
+<div class="info-row"><span class="info-label">Email</span><span class="info-value"><a href="mailto:info@rcgom.com">info@rcgom.com</a></span></div>
+<div class="info-row"><span class="info-label">Phone</span><span class="info-value"><a href="tel:+923114177403">+92 311 4177403</a></span></div>
+<div class="info-row"><span class="info-label">Address</span><span class="info-value">138/ML, MM Road, Chowk Azam, Layyah</span></div>
+</div>
+</div>
+</section>
+
+<footer>
+© 2026 RANA COTTON GINNERS &amp; OIL MILLS (PVT.) LTD. All Rights Reserved.
+</footer>
 <script>
-(function(){
-  var fill = document.getElementById('fill');
-  var bar  = document.getElementById('bar');
-  var nodes = Array.prototype.slice.call(document.querySelectorAll('.rail__node'));
-  var secs = nodes.map(function(n){ return document.getElementById(n.dataset.for); });
-  var ticking = false;
 
-  function paint(){
-    var h = document.documentElement.scrollHeight - window.innerHeight;
-    var p = h > 0 ? Math.min(window.scrollY / h, 1) : 0;
-    if (fill) fill.style.height = (p * 100) + '%';
-    if (bar)  bar.style.width  = (p * 100) + '%';
+/* Smooth navigation */
+document.querySelectorAll('nav a').forEach(link=>{
+  link.addEventListener('click',function(e){
+    const target=document.querySelector(this.getAttribute('href'));
+    if(target){
+      e.preventDefault();
+      target.scrollIntoView({behavior:'smooth'});
+    }
+    document.querySelector('nav')?.classList.remove('open');
+    document.querySelector('#menuToggle')?.setAttribute('aria-expanded','false');
+  });
+});
 
-    var mark = window.scrollY + window.innerHeight * 0.35;
-    var active = -1;
-    secs.forEach(function(s, i){ if (s && s.offsetTop <= mark) active = i; });
-    nodes.forEach(function(n, i){ n.classList.toggle('is-on', i === active); });
-    ticking = false;
-  }
+/* Header + back-to-top */
+const header=document.querySelector('header');
+const backToTop=document.createElement('button');
+backToTop.id='backToTop';
+backToTop.setAttribute('aria-label','Back to top');
+backToTop.innerHTML='↑';
+document.body.appendChild(backToTop);
 
-  window.addEventListener('scroll', function(){
-    if (!ticking){ window.requestAnimationFrame(paint); ticking = true; }
-  }, {passive:true});
-  window.addEventListener('resize', paint);
-  paint();
+function handleScroll(){
+  header.classList.toggle('scrolled',window.scrollY>35);
+  backToTop.classList.toggle('show',window.scrollY>500);
+}
+window.addEventListener('scroll',handleScroll,{passive:true});
+handleScroll();
 
-  var items = document.querySelectorAll('.reveal');
-  if ('IntersectionObserver' in window){
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
-      });
-    }, {rootMargin:'0px 0px -12% 0px', threshold:0.12});
-    items.forEach(function(el){ io.observe(el); });
-  } else {
-    items.forEach(function(el){ el.classList.add('in'); });
-  }
+backToTop.addEventListener('click',()=>{
+  window.scrollTo({top:0,behavior:'smooth'});
+});
 
-  document.getElementById('yr').textContent = new Date().getFullYear();
-})();
+/* Mobile menu */
+const menuToggle=document.getElementById('menuToggle');
+const nav=document.querySelector('nav');
+if(menuToggle && nav){
+  menuToggle.addEventListener('click',()=>{
+    const open=nav.classList.toggle('open');
+    menuToggle.setAttribute('aria-expanded',String(open));
+  });
+}
+
+/* Scroll reveal */
+const revealItems=document.querySelectorAll('.reveal');
+const revealObserver=new IntersectionObserver((entries,observer)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+},{threshold:.12,rootMargin:'0px 0px -50px 0px'});
+revealItems.forEach(item=>revealObserver.observe(item));
+
+/* Animated statistics */
+const counters=document.querySelectorAll('.counter');
+const counterObserver=new IntersectionObserver((entries,observer)=>{
+  entries.forEach(entry=>{
+    if(!entry.isIntersecting) return;
+    const counter=entry.target;
+    const target=Number(counter.dataset.target||0);
+    const duration=1400;
+    const start=performance.now();
+
+    function update(now){
+      const progress=Math.min((now-start)/duration,1);
+      const eased=1-Math.pow(1-progress,3);
+      counter.textContent=Math.floor(target*eased);
+      if(progress<1) requestAnimationFrame(update);
+      else counter.textContent=target;
+    }
+    requestAnimationFrame(update);
+    observer.unobserve(counter);
+  });
+},{threshold:.6});
+counters.forEach(counter=>counterObserver.observe(counter));
+
 </script>
 </body>
 </html>
